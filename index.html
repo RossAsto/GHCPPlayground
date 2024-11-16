@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+        }
+        nav {
+            width: 200px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#leaderboard" data-tab="leaderboard">Leaderboard</a></li>
+            <li><a href="#register-member" data-tab="register-member">Register Member</a></li>
+            <li><a href="#add-category" data-tab="add-category">Add Category</a></li>
+            <li><a href="#assign-category" data-tab="assign-category">Assign Category</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <section id="leaderboard" class="tab-content active">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Total Points</th>
+                        <th>Badge</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Leaderboard entries will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="register-member" class="tab-content">
+            <h2>Register Member</h2>
+            <form id="register-form">
+                <label for="member-name">Name:</label>
+                <input type="text" id="member-name" name="member-name" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="add-category" class="tab-content">
+            <h2>Add Category</h2>
+            <form id="category-form">
+                <label for="category-name">Category Name:</label>
+                <input type="text" id="category-name" name="category-name" required>
+                <label for="category-points">Points:</label>
+                <input type="number" id="category-points" name="category-points" required>
+                <button type="submit">Add Category</button>
+            </form>
+        </section>
+
+        <section id="assign-category" class="tab-content">
+            <h2>Assign Category to Member</h2>
+            <form id="assign-category-form">
+                <label for="assign-member-name">Member Name:</label>
+                <select id="assign-member-name" name="assign-member-name" required>
+                    <!-- Members will be dynamically added here -->
+                </select>
+                <label for="assign-category-name">Category Name:</label>
+                <select id="assign-category-name" name="assign-category-name" required>
+                    <!-- Categories will be dynamically added here -->
+                </select>
+                <button type="submit">Assign</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
